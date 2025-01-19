@@ -4,7 +4,7 @@
 
 Este repositório contém dois scripts para configurar o GitHub e o Oh My Zsh no terminal do macOS.
 
-## Script de Configuração do GitHub
+## Configurando o Github
 
 ### Descrição
 
@@ -41,7 +41,7 @@ Este script configura o GitHub no terminal do macOS, incluindo a configuração 
 - [Documentação Oficial de Chaves SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 - [Documentação Oficial de Commits Assinados](https://docs.github.com/en/authentication/managing-commit-signature-verification)
 
-## Script de Configuração do Oh My Zsh
+## SConfigurando o Oh My Zsh
 
 ### Descrição
 
@@ -170,7 +170,7 @@ This script installs Oh My Zsh in the macOS terminal, changes the theme to "fino
 - `zsh-autosuggestions`: Command suggestions based on history.
 - `colored-man-pages`: Adds colors to man pages.
 - `safe-paste`: Prevents accidental pasting and automatically execution of commands.
-- `web-search`: Facilitates web searches.
+- `web-search`: Facilitates web searches with `google` command: `google chatgpt`.
 - `vscode`: Shortcuts for Visual Studio Code.
 - `gitfast`: Speeds up Git commands.
 - `zsh-syntax-highlighting`: Highlights command syntax.
