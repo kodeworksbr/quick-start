@@ -28,6 +28,8 @@ mensagem_pt() {
     segunda_chave_configurada) echo "✅ Segunda chave SSH configurada para assinatura de commits com sucesso" ;;
     segunda_chave_copiada) echo "📑 Chave SSH de assinatura copiada para a área de transferência. Adicione-a à sua conta do GitHub." ;;
     link_signing) echo "🔗 Adicione a chave no github como 'Signing Key': https://github.com/settings/ssh/new" ;;
+    habilitar_assinatura_automatica) echo "🧐 Deseja habilitar a assinatura automática de commits? (s/n): " ;;
+    assinatura_automatica_habilitada) echo "✅ Assinatura automática de commits habilitada com sucesso." ;;
     concluido) echo "Configuração do GitHub concluída com sucesso." ;;
   esac
 }
@@ -57,6 +59,8 @@ mensagem_en() {
     segunda_chave_configurada) echo "✅ Second SSH key configured for signing commits successfully" ;;
     segunda_chave_copiada) echo "📑 Signing SSH key copied to clipboard. Add it to your GitHub account." ;;
     link_signing) echo "🔗 Add the key to GitHub as 'Signing Key': https://github.com/settings/ssh/new" ;;
+    habilitar_assinatura_automatica) echo "🧐 Do you want to enable automatic commit signing? (y/n): " ;;
+    assinatura_automatica_habilitada) echo "✅ Automatic commit signing enabled successfully." ;;
     concluido) echo "GitHub configuration completed successfully." ;;
   esac
 }
@@ -143,6 +147,14 @@ if [[ "$continuarconfig" == "s" || "$continuarconfig" == "y" ]]; then
     pbcopy < ~/.ssh/id_ed25519_signing.pub
     mensagem segunda_chave_copiada
     mensagem link_signing
+
+    # Perguntar ao usuário se deseja habilitar a assinatura automática de commits
+    read -p "$(mensagem habilitar_assinatura_automatica)" habilitar_assinatura_automatica
+
+    if [[ "$habilitar_assinatura_automatica" == "s" || "$habilitar_assinatura_automatica" == "y" ]]; then
+      git config --global commit.gpgSign true
+      mensagem assinatura_automatica_habilitada
+    fi
   fi
 fi
 
